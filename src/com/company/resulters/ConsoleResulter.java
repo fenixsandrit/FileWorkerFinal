@@ -1,19 +1,21 @@
-package com.company;
+package com.company.resulters;
 
 import com.company.Commands.ICommand;
+import com.company.FileWorker;
+import com.company.executors.IExecutable;
 
 import java.util.ArrayDeque;
 
-public class ConsoleRusulter extends Resulter {
-    ConsoleRusulter(FileWorker fileworker) {
+public class ConsoleResulter extends Resulter
+{
+    public ConsoleResulter(FileWorker fileworker)
+    {
         super(fileworker);
     }
     @Override
-    public void ShowResult() {
-        var result = fileworker.getResult();
-        var copy = new ArrayDeque<String>();
-        System.out.print("ConsoleResulter:\n");
-        System.out.print(result.peek() );
+    public void showResult()
+    {
+        System.out.println("ConsoleResulter:\n" + fileworker.getResult());
     }
 
     public static class FileCommand implements ICommand {

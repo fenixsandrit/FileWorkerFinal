@@ -3,22 +3,24 @@ package com.company;
 import com.company.Commands.ICommand;
 
 import java.util.ArrayDeque;
+import java.util.Queue;
 
-public class CommandQueue {
-    private static ArrayDeque<ICommand> commandHistory = new ArrayDeque<>();
+public class CommandQueue
+{
+    private static Queue<ICommand> commandHistory = new ArrayDeque<>();
 
-
-    public static void addCommand(ICommand command){
+    public static void addCommand(ICommand command)
+    {
         commandHistory.offer(command);
     }
 
-    public static Iterable<ICommand> getIter(){
+    public static Iterable<ICommand> getIterator()
+    {
         return commandHistory;
     }
 
-    public static ICommand popCommand(){
-        if (commandHistory.size() != 0)
-            return commandHistory.poll();
-        else return null;
+    public static ICommand popCommand()
+    {
+        return commandHistory.peek();
     }
 }
